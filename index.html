@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ALQUIPC - Facturación</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">ALQUIPC</div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#facturacion">Facturación</a>
+            <a href="#informacion">Información</a>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- INICIO -->
+        <section id="inicio" class="hero">
+
+            <div class="hero-contenido">
+
+                <h1>ALQUIPC</h1>
+
+                <h2>Alquiler de equipos de cómputo</h2>
+
+                <p>
+                    Servicio de alquiler de computadores portátiles
+                    por días, de forma rápida y sencilla.
+                </p>
+
+                <a href="#facturacion" class="boton">
+                    Realizar factura
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- FACTURACIÓN -->
+        <section id="facturacion" class="facturacion">
+
+            <div class="contenedor">
+
+                <h2>Factura de alquiler</h2>
+
+                <p class="descripcion">
+                    Complete los datos para calcular el valor total
+                    del alquiler.
+                </p>
+
+
+                <form id="formularioFactura">
+
+                    <!-- ID CLIENTE -->
+                    <div class="grupo">
+
+                        <label for="idCliente">
+                            ID del cliente
+                        </label>
+
+                        <input
+                            type="text"
+                            id="idCliente"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <!-- EQUIPOS -->
+                    <div class="grupo">
+
+                        <label for="equipos">
+                            Número de equipos
+                        </label>
+
+                        <input
+                            type="number"
+                            id="equipos"
+                            min="2"
+                            placeholder="Mínimo 2 equipos"
+                            required
+                        >
+
+                        <small>
+                            Mínimo permitido: 2 equipos
+                        </small>
+
+                    </div>
+
+
+                    <!-- DIAS INICIALES -->
+                    <div class="grupo">
+
+                        <label for="dias">
+                            Días iniciales de alquiler
+                        </label>
+
+                        <input
+                            type="number"
+                            id="dias"
+                            min="1"
+                            placeholder="Ej: 5"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- DIAS ADICIONALES -->
+                    <div class="grupo">
+
+                        <label for="diasAdicionales">
+                            Días adicionales
+                        </label>
+
+                        <input
+                            type="number"
+                            id="diasAdicionales"
+                            min="0"
+                            value="0"
+                            placeholder="0"
+                        >
+
+                    </div>
+
+
+                    <!-- TIPO DE ALQUILER -->
+                    <div class="grupo">
+
+                        <label for="tipoAlquiler">
+                            Opción de alquiler
+                        </label>
+
+                        <select id="tipoAlquiler" required>
+
+                            <option value="">
+                                Seleccione una opción
+                            </option>
+
+                            <option value="ciudad">
+                                Dentro de la ciudad
+                            </option>
+
+                            <option value="fuera">
+                                Fuera de la ciudad
+                            </option>
+
+                            <option value="establecimiento">
+                                Dentro del establecimiento
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="boton calcular"
+                    >
+                        Calcular factura
+                    </button>
+
+                </form>
+
+
+                <!-- RESULTADO -->
+                <div
+                    id="resultado"
+                    class="resultado oculto"
+                >
+
+                    <h2>Resumen de la factura</h2>
+
+                    <div class="factura-dato">
+                        <span>ID Cliente:</span>
+                        <strong id="resultadoId"></strong>
+                    </div>
+
+                    <div class="factura-dato">
+                        <span>Opción de alquiler:</span>
+                        <strong id="resultadoOpcion"></strong>
+                    </div>
+
+                    <div class="factura-dato">
+                        <span>Número de equipos:</span>
+                        <strong id="resultadoEquipos"></strong>
+                    </div>
+
+                    <div class="factura-dato">
+                        <span>Días iniciales:</span>
+                        <strong id="resultadoDias"></strong>
+                    </div>
+
+                    <div class="factura-dato">
+                        <span>Días adicionales:</span>
+                        <strong id="resultadoAdicionales"></strong>
+                    </div>
+
+                    <div class="factura-dato">
+                        <span>Valor base:</span>
+                        <strong id="resultadoBase"></strong>
+                    </div>
+
+                    <div class="factura-dato">
+                        <span>Descuento / incremento:</span>
+                        <strong id="resultadoAjuste"></strong>
+                    </div>
+
+                    <div class="factura-dato total">
+                        <span>Total a cancelar:</span>
+                        <strong id="resultadoTotal"></strong>
+                    </div>
+
+
+                    <div class="correo">
+
+                        <h3>Enviar factura por correo</h3>
+
+                        <input
+                            type="email"
+                            id="correoCliente"
+                            placeholder="correo@ejemplo.com"
+                        >
+
+                        <button
+                            type="button"
+                            id="enviarCorreo"
+                            class="boton"
+                        >
+                            Enviar factura
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INFORMACIÓN -->
+        <section id="informacion" class="informacion">
+
+            <div class="contenedor">
+
+                <h2>Información del servicio</h2>
+
+                <div class="tarjetas">
+
+                    <div class="tarjeta">
+
+                        <h3>$35.000</h3>
+
+                        <p>
+                            Valor del alquiler de un equipo
+                            por día.
+                        </p>
+
+                    </div>
+
+
+                    <div class="tarjeta">
+
+                        <h3>5%</h3>
+
+                        <p>
+                            Incremento por servicio de domicilio
+                            fuera de la ciudad.
+                        </p>
+
+                    </div>
+
+
+                    <div class="tarjeta">
+
+                        <h3>5%</h3>
+
+                        <p>
+                            Descuento por alquiler dentro
+                            del establecimiento.
+                        </p>
+
+                    </div>
+
+
+                    <div class="tarjeta">
+
+                        <h3>2%</h3>
+
+                        <p>
+                            Descuento por cada día adicional,
+                            con máximo del 10%.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            ALQUIPC © 2026 - Sistema de facturación
+        </p>
+
+        <p>
+            No se generan recibos impresos.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
