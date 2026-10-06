@@ -1,41 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ALQUIPC - Facturación</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
+
+    <!-- ================================
+         HEADER
+    ================================= -->
+
     <header>
-        <div class="logo">ALQUIPC</div>
+
+        <div class="logo">
+            ALQUIPC
+        </div>
 
         <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#facturacion">Facturación</a>
-            <a href="#informacion">Información</a>
+
+            <a href="#inicio">
+                Inicio
+            </a>
+
+            <a href="#facturacion">
+                Facturación
+            </a>
+
+            <a href="#informacion">
+                Información
+            </a>
+
         </nav>
+
     </header>
+
 
 
     <main>
 
-        <!-- INICIO -->
+
+        <!-- ================================
+             INICIO
+        ================================= -->
+
         <section id="inicio" class="hero">
 
             <div class="hero-contenido">
 
-                <h1>ALQUIPC</h1>
+                <h1>
+                    ALQUIPC
+                </h1>
 
-                <h2>Alquiler de equipos de cómputo</h2>
+                <h2>
+                    Alquiler de equipos de cómputo
+                </h2>
 
                 <p>
-                    Servicio de alquiler de computadores portátiles
-                    por días, de forma rápida y sencilla.
+                    Servicio de alquiler de computadores
+                    portátiles por días, de forma rápida
+                    y sencilla.
                 </p>
 
                 <a href="#facturacion" class="boton">
@@ -47,22 +81,134 @@
         </section>
 
 
-        <!-- FACTURACIÓN -->
+
+        <!-- ================================
+             FACTURACIÓN
+        ================================= -->
+
         <section id="facturacion" class="facturacion">
 
             <div class="contenedor">
 
-                <h2>Factura de alquiler</h2>
+                <h2>
+                    Factura de alquiler
+                </h2>
 
                 <p class="descripcion">
-                    Complete los datos para calcular el valor total
-                    del alquiler.
+                    Complete los datos del cliente y del
+                    alquiler para calcular el valor total.
                 </p>
 
 
                 <form id="formularioFactura">
 
-                    <!-- ID CLIENTE -->
+
+                    <!-- ==============================
+                         DATOS DEL CLIENTE
+                    =============================== -->
+
+                    <div class="grupo">
+
+                        <label for="nombre">
+                            Nombre
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Ej: Juan"
+                            minlength="2"
+                            maxlength="30"
+                            pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü ]+"
+                            title="El nombre solo puede contener letras y espacios."
+                            required
+                        >
+
+                        <small>
+                            Solo letras. Mínimo 2 caracteres.
+                        </small>
+
+                    </div>
+
+
+                    <div class="grupo">
+
+                        <label for="apellido">
+                            Apellido
+                        </label>
+
+                        <input
+                            type="text"
+                            id="apellido"
+                            name="apellido"
+                            placeholder="Ej: Pérez"
+                            minlength="2"
+                            maxlength="30"
+                            pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü ]+"
+                            title="El apellido solo puede contener letras y espacios."
+                            required
+                        >
+
+                        <small>
+                            Solo letras. Mínimo 2 caracteres.
+                        </small>
+
+                    </div>
+
+
+                    <div class="grupo">
+
+                        <label for="telefono">
+                            Teléfono
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="telefono"
+                            name="telefono"
+                            placeholder="Ej: 3001234567"
+                            pattern="[0-9]{10}"
+                            maxlength="10"
+                            inputmode="numeric"
+                            title="El teléfono debe contener exactamente 10 números."
+                            required
+                        >
+
+                        <small>
+                            Debe contener exactamente 10 números.
+                        </small>
+
+                    </div>
+
+
+                    <div class="grupo">
+
+                        <label for="correo">
+                            Correo electrónico
+                        </label>
+
+                        <input
+                            type="email"
+                            id="correo"
+                            name="correo"
+                            placeholder="ejemplo@correo.com"
+                            maxlength="100"
+                            required
+                        >
+
+                        <small>
+                            Ingrese un correo electrónico válido.
+                        </small>
+
+                    </div>
+
+
+
+                    <!-- ==============================
+                         ID CLIENTE
+                    =============================== -->
+
                     <div class="grupo">
 
                         <label for="idCliente">
@@ -72,13 +218,22 @@
                         <input
                             type="text"
                             id="idCliente"
+                            name="idCliente"
                             readonly
                         >
+
+                        <small>
+                            Generado automáticamente.
+                        </small>
 
                     </div>
 
 
-                    <!-- EQUIPOS -->
+
+                    <!-- ==============================
+                         EQUIPOS
+                    =============================== -->
+
                     <div class="grupo">
 
                         <label for="equipos">
@@ -88,19 +243,25 @@
                         <input
                             type="number"
                             id="equipos"
+                            name="equipos"
                             min="2"
+                            max="100"
                             placeholder="Mínimo 2 equipos"
                             required
                         >
 
                         <small>
-                            Mínimo permitido: 2 equipos
+                            Mínimo 2 y máximo 100 equipos.
                         </small>
 
                     </div>
 
 
-                    <!-- DIAS INICIALES -->
+
+                    <!-- ==============================
+                         DÍAS INICIALES
+                    =============================== -->
+
                     <div class="grupo">
 
                         <label for="dias">
@@ -110,15 +271,25 @@
                         <input
                             type="number"
                             id="dias"
+                            name="dias"
                             min="1"
+                            max="365"
                             placeholder="Ej: 5"
                             required
                         >
 
+                        <small>
+                            Mínimo 1 día y máximo 365 días.
+                        </small>
+
                     </div>
 
 
-                    <!-- DIAS ADICIONALES -->
+
+                    <!-- ==============================
+                         DÍAS ADICIONALES
+                    =============================== -->
+
                     <div class="grupo">
 
                         <label for="diasAdicionales">
@@ -128,22 +299,37 @@
                         <input
                             type="number"
                             id="diasAdicionales"
+                            name="diasAdicionales"
                             min="0"
+                            max="365"
                             value="0"
                             placeholder="0"
+                            required
                         >
+
+                        <small>
+                            Puede ingresar 0 si no necesita días adicionales.
+                        </small>
 
                     </div>
 
 
-                    <!-- TIPO DE ALQUILER -->
+
+                    <!-- ==============================
+                         TIPO DE ALQUILER
+                    =============================== -->
+
                     <div class="grupo">
 
                         <label for="tipoAlquiler">
                             Opción de alquiler
                         </label>
 
-                        <select id="tipoAlquiler" required>
+                        <select
+                            id="tipoAlquiler"
+                            name="tipoAlquiler"
+                            required
+                        >
 
                             <option value="">
                                 Seleccione una opción
@@ -166,6 +352,11 @@
                     </div>
 
 
+
+                    <!-- ==============================
+                         BOTÓN
+                    =============================== -->
+
                     <button
                         type="submit"
                         class="boton calcular"
@@ -176,63 +367,165 @@
                 </form>
 
 
-                <!-- RESULTADO -->
+
+                <!-- ================================
+                     RESULTADO
+                ================================= -->
+
                 <div
                     id="resultado"
                     class="resultado oculto"
                 >
 
-                    <h2>Resumen de la factura</h2>
+                    <h2>
+                        Resumen de la factura
+                    </h2>
+
 
                     <div class="factura-dato">
-                        <span>ID Cliente:</span>
+
+                        <span>
+                            ID Cliente:
+                        </span>
+
                         <strong id="resultadoId"></strong>
+
                     </div>
 
+
                     <div class="factura-dato">
-                        <span>Opción de alquiler:</span>
+
+                        <span>
+                            Nombre:
+                        </span>
+
+                        <strong id="resultadoNombre"></strong>
+
+                    </div>
+
+
+                    <div class="factura-dato">
+
+                        <span>
+                            Apellido:
+                        </span>
+
+                        <strong id="resultadoApellido"></strong>
+
+                    </div>
+
+
+                    <div class="factura-dato">
+
+                        <span>
+                            Teléfono:
+                        </span>
+
+                        <strong id="resultadoTelefono"></strong>
+
+                    </div>
+
+
+                    <div class="factura-dato">
+
+                        <span>
+                            Correo:
+                        </span>
+
+                        <strong id="resultadoCorreo"></strong>
+
+                    </div>
+
+
+                    <div class="factura-dato">
+
+                        <span>
+                            Opción de alquiler:
+                        </span>
+
                         <strong id="resultadoOpcion"></strong>
+
                     </div>
 
+
                     <div class="factura-dato">
-                        <span>Número de equipos:</span>
+
+                        <span>
+                            Número de equipos:
+                        </span>
+
                         <strong id="resultadoEquipos"></strong>
+
                     </div>
 
+
                     <div class="factura-dato">
-                        <span>Días iniciales:</span>
+
+                        <span>
+                            Días iniciales:
+                        </span>
+
                         <strong id="resultadoDias"></strong>
+
                     </div>
 
+
                     <div class="factura-dato">
-                        <span>Días adicionales:</span>
+
+                        <span>
+                            Días adicionales:
+                        </span>
+
                         <strong id="resultadoAdicionales"></strong>
+
                     </div>
 
+
                     <div class="factura-dato">
-                        <span>Valor base:</span>
+
+                        <span>
+                            Valor base:
+                        </span>
+
                         <strong id="resultadoBase"></strong>
+
                     </div>
 
+
                     <div class="factura-dato">
-                        <span>Descuento / incremento:</span>
+
+                        <span>
+                            Descuento / incremento:
+                        </span>
+
                         <strong id="resultadoAjuste"></strong>
+
                     </div>
+
 
                     <div class="factura-dato total">
-                        <span>Total a cancelar:</span>
+
+                        <span>
+                            Total a cancelar:
+                        </span>
+
                         <strong id="resultadoTotal"></strong>
+
                     </div>
 
+
+                    <!-- CORREO -->
 
                     <div class="correo">
 
-                        <h3>Enviar factura por correo</h3>
+                        <h3>
+                            Enviar factura por correo
+                        </h3>
 
                         <input
                             type="email"
                             id="correoCliente"
-                            placeholder="correo@ejemplo.com"
+                            readonly
                         >
 
                         <button
@@ -252,22 +545,35 @@
         </section>
 
 
-        <!-- INFORMACIÓN -->
-        <section id="informacion" class="informacion">
+
+        <!-- ================================
+             INFORMACIÓN
+        ================================= -->
+
+        <section
+            id="informacion"
+            class="informacion"
+        >
 
             <div class="contenedor">
 
-                <h2>Información del servicio</h2>
+                <h2>
+                    Información del servicio
+                </h2>
+
 
                 <div class="tarjetas">
 
+
                     <div class="tarjeta">
 
-                        <h3>$35.000</h3>
+                        <h3>
+                            $35.000
+                        </h3>
 
                         <p>
-                            Valor del alquiler de un equipo
-                            por día.
+                            Valor del alquiler de un
+                            equipo por día.
                         </p>
 
                     </div>
@@ -275,10 +581,12 @@
 
                     <div class="tarjeta">
 
-                        <h3>5%</h3>
+                        <h3>
+                            +5%
+                        </h3>
 
                         <p>
-                            Incremento por servicio de domicilio
+                            Incremento por servicio
                             fuera de la ciudad.
                         </p>
 
@@ -287,11 +595,13 @@
 
                     <div class="tarjeta">
 
-                        <h3>5%</h3>
+                        <h3>
+                            -5%
+                        </h3>
 
                         <p>
-                            Descuento por alquiler dentro
-                            del establecimiento.
+                            Descuento por alquiler
+                            dentro del establecimiento.
                         </p>
 
                     </div>
@@ -299,11 +609,13 @@
 
                     <div class="tarjeta">
 
-                        <h3>2%</h3>
+                        <h3>
+                            2%
+                        </h3>
 
                         <p>
-                            Descuento por cada día adicional,
-                            con máximo del 10%.
+                            Descuento por cada día
+                            adicional, con máximo del 10%.
                         </p>
 
                     </div>
@@ -316,6 +628,11 @@
 
     </main>
 
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
 
     <footer>
 
@@ -333,4 +650,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
